@@ -1,0 +1,238 @@
+@use "sass:math";
+@use "sass:color";
+@use "variables" as *;
+
+.container {
+  max-width: 1190px;
+  margin: 0 auto;
+}
+
+.crowdfund {
+  &__main {
+    max-width: 721px;
+    margin: 0 auto;
+  }
+  &__mastercraft {
+    background-color: white;
+    margin-block-start: 11rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    @media screen and (min-width: 30em) {
+      padding: 2rem;
+    }
+    &-logo {
+      margin-block-start: -2.7rem;
+    }
+
+    &-head {
+      margin-block-start: 1rem;
+    }
+
+    &-text {
+      margin-block-start: 1rem;
+      color: $dark-green;
+    }
+
+    &-links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-block-start: 2rem;
+
+      button:first-child {
+        background-color: $mod-cyan;
+        color: white;
+        padding: 0.9rem 1.6rem;
+        border-radius: 3rem;
+      }
+      button:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(243, 238, 238, 0.711);
+        border-radius: 5rem;
+        padding: 0;
+
+        span {
+          color: $dark-green;
+          font-weight: 700;
+          padding-inline: 1rem;
+          @media screen and (max-width: 30.375em) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__counts {
+    text-align: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    margin-block-start: 2rem;
+
+    .counts {
+      @media screen and (min-width: 30em) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    p {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span:first-child {
+        font-weight: 900;
+        font-size: 2rem;
+      }
+      span:last-child {
+        color: $dark-green;
+      }
+    }
+  }
+  .backed {
+    span:last-child {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 1px;
+        background-color: color.adjust($dark-green, $lightness: 40%);
+        bottom: -1rem;
+        @media screen and (min-width: 35em) {
+          display: none;
+        }
+      }
+    }
+  }
+  .backers {
+    span:last-child {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: color.adjust($dark-green, $lightness: 40%);
+        width: 90px;
+        height: 1px;
+        bottom: -1rem;
+        @media screen and (min-width: 35em) {
+          display: none;
+        }
+      }
+    }
+  }
+  &__about {
+    background-color: white;
+    padding: 1.5em;
+    margin-block-start: 3rem;
+    border-radius: 0.5rem;
+    @media screen and (min-width: 35em) {
+      padding: 3em;
+    }
+
+    &-head {
+      font-weight: 900;
+      margin-block-end: 1rem;
+    }
+    p {
+      color: $dark-green;
+    }
+    // p:first-of-type {
+    //   margin-block-end: 2rem;
+    // }
+  }
+}
+
+.progress {
+  line-height: 0;
+  height: 0.7rem;
+  background-color: color.adjust($dark-green, $lightness: 40%);
+  border-radius: 1.5rem;
+  text-align: start;
+  margin-block-start: 1rem;
+
+  &-bar {
+    display: inline-block;
+    width: 70%;
+    background-color: $mod-cyan;
+    height: 100%;
+    border-radius: 1.5rem;
+  }
+}
+
+.pledge-component {
+  margin-block-start: 2rem;
+  border: 1px solid color.adjust($dark-green, $lightness: 30%);
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+
+  .head {
+    margin-block-end: 2rem;
+    @media screen and (min-width: 30em) {
+      display: flex;
+      justify-content: space-between;
+    }
+    h3 {
+      font-size: 0.97rem;
+      margin-block-end: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: $mod-cyan;
+      font-weight: 500;
+    }
+  }
+
+  .txt {
+    font-size: 0.99rem;
+  }
+  .foot {
+    margin-block-start: 1.5rem;
+    @media screen and (min-width: 30em) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .count {
+    display: flex;
+    width: 87px;
+    justify-content: space-around;
+
+    align-items: center;
+    span:first-child {
+      font-size: 2rem;
+      color: black;
+      font-weight: 900;
+    }
+  }
+
+  .btn {
+    background-color: $mod-cyan;
+    color: white;
+    padding: 1rem 2rem;
+    font-weight: 900;
+    border-radius: 2rem;
+    margin-block-start: 1rem;
+  }
+}
