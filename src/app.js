@@ -78,6 +78,15 @@ $(document).ready(function () {
   $(continuebtns).each(function () {
     $(this).click(function (event) {
       event.preventDefault();
+      let field = $(this).parents("form").find("input").val();
+      if (field === undefined || field === "" || field === null) {
+        alert("field cannot be empty");
+        return;
+      }
+      if (!$.isNumeric(field)) {
+        alert("field can only be number");
+        return;
+      }
       backProject.hide();
       thanksModal.css("display", "flex");
       thanksModalBtn.click(function () {
