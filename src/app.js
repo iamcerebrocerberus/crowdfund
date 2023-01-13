@@ -7,7 +7,9 @@ $(document).ready(function () {
   const thanksModal = $(".js-thanks-modal");
   const thanksModalBtn = $(".js-thanks-modal-btn");
   const backProject = $(".js-back-project-modal");
+  const selectReward = $(".js-select-btn");
   const backProjectInner = $(".js-back-project-modal-inner");
+
   const continuebtns = $(".js-continue");
   const closeBackProject = $(".js-back-project-close");
   const backRadio = $(".js-back-radio");
@@ -92,6 +94,17 @@ $(document).ready(function () {
       thanksModalBtn.click(function () {
         page.attr("data-overlay", "out");
         thanksModal.hide();
+      });
+    });
+  });
+
+  selectReward.each(function () {
+    $(this).click(function () {
+      page.attr("data-overlay", "in");
+      thanksModal.css("display", "flex");
+      thanksModalBtn.click(function () {
+        thanksModal.hide();
+        page.attr("data-overlay", "out");
       });
     });
   });
