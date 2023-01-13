@@ -7,6 +7,7 @@ const htmlmin = require("gulp-htmlmin");
 const clean = require("gulp-clean");
 const uglify = require("gulp-uglify");
 // const babel = require("gulp-babel");
+const sourcemap = require("gulp-sourcemaps");
 const htmllint = require("gulp-htmllint");
 const imagemin = require("gulp-imagemin");
 
@@ -28,6 +29,7 @@ function cpyHtml() {
 // CSS tasks
 function sassCompile() {
   return src("src/scss/*.scss")
+    .pipe(sourcemap.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(
       postcss([
@@ -36,6 +38,7 @@ function sassCompile() {
         }),
       ])
     )
+    .pipe(sourcemap.write())
     .pipe(dest("./dist"));
 }
 

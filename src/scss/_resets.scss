@@ -92,3 +92,21 @@ button {
     outline: 3px dotted grey !important;
   }
 }
+
+a {
+  text-decoration: none;
+  &:link {
+    color: white;
+  }
+}
+
+.list-link:link {
+  color: black !important;
+}
+
+.list-link:visited {
+  color: rgb(61, 56, 56) !important;
+}
+.list-link:hover {
+  color: $dark-cyan !important;
+}

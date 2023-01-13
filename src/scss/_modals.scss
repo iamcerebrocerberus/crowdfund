@@ -1,0 +1,241 @@
+@use "sass:color";
+@use "variables" as *;
+
+.thanks-modal-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 1rem;
+  z-index: 1000;
+  display: none;
+}
+
+.thanks-modal {
+  background-color: white;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 36em;
+
+  img {
+    margin-block-end: 2.5rem;
+  }
+
+  h3 {
+    margin-block-end: 1.5rem;
+  }
+
+  p {
+    color: $dark-green;
+  }
+  button {
+    margin-block-start: 2rem;
+    background-color: $mod-cyan;
+    color: white;
+    font-weight: 900;
+    padding: 0.6rem 1.4rem;
+    border-radius: 3rem;
+
+    &:hover,
+    &:focus {
+      background-color: $dark-cyan;
+    }
+  }
+}
+
+.back-project-modal-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 1000;
+
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.back-project-modal {
+  background-color: white;
+  padding: 2rem 1rem;
+  height: 75vh;
+  overflow: scroll;
+  border-radius: 0.5rem;
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: 1rem;
+  }
+  .modal-text {
+    color: $dark-green;
+    text-align: center;
+    @media screen and (min-width: 35.4375em) {
+      text-align: start;
+    }
+  }
+}
+
+.back-component {
+  margin-block-start: 2rem;
+  border: 0.05rem solid color.adjust($dark-green, $lightness: 20%);
+  border-radius: 0.6rem;
+  max-width: 710px;
+  .comp-main {
+    padding: 1.5rem;
+    &-head {
+      display: flex;
+      align-items: center;
+
+      div:nth-of-type(1) {
+        margin-inline-start: 1rem;
+        font-size: 0.8em;
+        font-weight: 900;
+        @media screen and (min-width: 35.4275em) {
+          display: flex;
+          align-items: center;
+        }
+
+        p {
+          color: $mod-cyan;
+          @media screen and (min-width: 35.4275em) {
+            margin-inline-start: 1rem;
+          }
+        }
+      }
+
+      [type="radio"] {
+        appearance: none;
+        margin: 0;
+        width: 1.8rem;
+        height: 1.8rem;
+        border: 0.1rem solid color.adjust($dark-green, $lightness: 20%);
+        border-radius: 50%;
+        align-items: center;
+        display: grid;
+        place-content: center;
+      }
+
+      [type="radio"]::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        transform: scale(0);
+        background-color: $mod-cyan;
+      }
+      [type="radio"]:checked::before {
+        transform: scale(1);
+      }
+    }
+
+    &-txt {
+      color: $dark-green;
+      margin-block-start: 2rem;
+      @media screen and (min-width: 35.4375em) {
+        margin-inline-start: 2.8rem;
+      }
+    }
+  }
+  .comp-expand {
+    margin-block-start: 2rem;
+    position: relative;
+    padding: 1.5rem;
+    border-top: 0.03rem solid color.adjust($dark-green, $lightness: 30%);
+    display: none;
+  }
+}
+
+.back-mobi-price {
+  display: flex;
+  align-items: center;
+  margin-block-start: 1.4rem;
+  @media screen and (min-width: 35.4375em) {
+    margin-block-start: 0;
+    margin-inline-start: auto;
+  }
+
+  span:first-of-type {
+    font-weight: 900;
+    font-size: 1.4rem;
+  }
+  span:last-of-type {
+    color: $dark-green;
+    margin-inline-start: 0.5rem;
+  }
+}
+
+.comp-expand {
+  form {
+    text-align: center;
+
+    @media screen and (min-width: 41.375em) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    label {
+      color: $dark-green;
+      display: block;
+      margin-bottom: 1.4rem;
+
+      @media screen and (min-width: 41.375em) {
+        margin-bottom: 0;
+      }
+    }
+
+    div {
+      display: flex;
+      gap: 1rem;
+      max-width: 20em;
+      margin-inline: auto auto;
+      @media screen and (min-width: 41.375em) {
+        margin-inline: auto 0 !important;
+      }
+
+      div {
+        width: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input {
+          width: 100%;
+          height: 3rem;
+          appearance: none;
+          outline: 0;
+          border: 0.1rem solid color.adjust($dark-green, $lightness: 30%);
+          border-radius: 2rem;
+          padding: 1rem 2rem;
+          position: relative;
+          font-weight: 900;
+        }
+
+        &::before {
+          content: "$";
+          position: absolute;
+          z-index: 1000;
+          font-size: 1rem;
+          font-weight: 900;
+          left: 1rem;
+          color: color.adjust($dark-green, $lightness: 10%);
+        }
+      }
+      button {
+        color: white;
+        background-color: $mod-cyan;
+        width: 50%;
+        border-radius: 2rem;
+        font-weight: 900;
+      }
+    }
+  }
+}
