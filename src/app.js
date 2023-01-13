@@ -7,6 +7,8 @@ $(document).ready(function () {
   const thanksModal = $(".js-thanks-modal");
   const thanksModalBtn = $(".js-thanks-modal-btn");
   const backProject = $(".js-back-project-modal");
+  const backProjectInner = $(".js-back-project-modal-inner");
+  const continuebtns = $(".js-continue");
   const closeBackProject = $(".js-back-project-close");
   const backRadio = $(".js-back-radio");
 
@@ -50,21 +52,37 @@ $(document).ready(function () {
 
   /*expand back project components when checked*/
   $.each(backRadio, function (index, element) {
+    $(this).prop("checked", false);
     $(element).on("click", function () {
       $.each(backRadio, function (i, ele) {
-        if (ele == element)
+        if (ele == element) {
           $(ele)
+            .prop("checked", true)
             .parents(".back-component")
             .addClass("modal-expand")
             .find(".comp-expand")
             .slideDown()
             .show();
-        else
+        } else {
           $(ele)
             .parents(".back-component")
             .removeClass("modal-expand")
             .find(".comp-expand")
             .slideUp();
+        }
+      });
+    });
+  });
+
+  /*show thanks modal when continue buttton is clicked*/
+  $(continuebtns).each(function () {
+    $(this).click(function (event) {
+      event.preventDefault();
+      backProject.hide();
+      thanksModal.css("display", "flex");
+      thanksModalBtn.click(function () {
+        page.attr("data-overlay", "out");
+        thanksModal.hide();
       });
     });
   });
