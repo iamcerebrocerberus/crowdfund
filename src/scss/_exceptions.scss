@@ -36,16 +36,6 @@
   }
 }
 
-.crowdfund__list[style*="display:block"] {
-  @media screen and (min-width: 35em) {
-    li a {
-      color: black !important;
-      background-color: red;
-      font-size: 4rem;
-    }
-  }
-}
-
 @media screen and (max-width: 35em) {
   [data-menu-overlay="in"] {
     &::before {
