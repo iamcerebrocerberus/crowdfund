@@ -44,9 +44,8 @@ function sassCompile() {
 
 function sassCompileMinify() {
   return src("src/scss/*.scss")
-    .pipe(sass({ outputStyle: compressed }).on("error", sass.logError))
+    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(postcss([autoprefixer({ overrideBrowserslist: ["last 1 version"] })]))
-    .pipe(cssnano())
     .pipe(dest("./dist"));
 }
 
